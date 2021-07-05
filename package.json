@@ -1,0 +1,21 @@
+{
+  "name": "issue-tracker",
+  "version": "1.0.0",
+  "description": "tracks issues in projects",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -w server -e js,graphql server/server.js",
+    "watch": "babel src --out-dir public --watch --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.25.2",
+    "apollo-server-express": "^2.25.2",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1",
+    "mongodb": "^3.6.9",
+    "nodemon": "^2.0.7"
+  }
+}
