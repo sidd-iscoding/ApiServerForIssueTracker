@@ -4,7 +4,7 @@
   "description": "tracks issues in projects",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -w server -e js,graphql server/server.js",
+    "start": "nodemon -e js,graphql -w . -w .env server.js",
     "watch": "babel src --out-dir public --watch --verbose",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +13,7 @@
   "dependencies": {
     "apollo-server": "^2.25.2",
     "apollo-server-express": "^2.25.2",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "graphql": "^15.5.1",
     "mongodb": "^3.6.9",
