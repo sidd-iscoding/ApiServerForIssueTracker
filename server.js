@@ -34,7 +34,7 @@ const resolvers = {
   Query: {
     about: () => aboutMessage,
     issueList,
-    
+    issue,
   },
   Mutation: {
     setAboutMessage,
@@ -47,8 +47,16 @@ function setAboutMessage(_, { message }) {
   return aboutMessage = message;
 }
 
-async function issueList() {
-  const issues = await db.collection('issues').find({}).toArray();
+async function issue(_, { id }) {
+  const issue = await db.collection('issues').findOne({ id });
+  return issue;
+}
+
+async function issueList(_, { status }) {
+  const filter = {};
+  if (status) filter.status = status;
+  const issues = await db.collection('issues').find(filter).toArray();
+  //const issues = await db.collection('issues').find({}).toArray();
   return issues;
 }
 
